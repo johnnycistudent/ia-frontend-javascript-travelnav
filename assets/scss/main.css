@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css?family=Muli:400,700i|Poppins:400,400i");
+.navbar-brand {
+  font-family: "Muli", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.50em;
+  color: #fff; }
+
+.logo {
+  font-family: "Muli", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 4.50em;
+  padding-top: 15px;
+  color: #fff !important; }
+
+/*----------------Body---------------*/
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  color: #fff; }
+
+/*----------------Navbar---------------*/
+/*----------------Logo---------------*/
+.logo {
+  text-align: center; }
+
+/*----------------Intro Section---------------*/
+.hero-image {
+  position: relative;
+  min-height: 500px;
+  width: 100%;
+  background-image: url(../images/panorama.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+.logo-wrapper {
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+  position: absolute;
+  bottom: 50px; }
+
+/*------------Call To Action Button-----------*/
+.cta-button {
+  line-height: 1.5; }
+
+.btn-success {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #28a745;
+  border-radius: 16px; }
+
+/*----------------Main---------------*/
+section {
+  min-height: 500px;
+  width: 100%;
+  background: #ebf5ff; }
+
+/*----------------Footer---------------*/
+footer {
+  color: #000;
+  min-height: 30px;
+  text-align: center; }
+
+/*# sourceMappingURL=main.css.map */
