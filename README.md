@@ -74,6 +74,7 @@ This website was designed by John O'Connor.
 
 
 ### Media 
+  * The Hero Image is from Pixabay and was sourced using google image search under the free to use search setting. It can be found [here](https://pixabay.com/en/panorama-miami-florida-water-usa-2117310/)
 
 
 ## Acknowledgements
