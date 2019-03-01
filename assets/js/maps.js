@@ -52,7 +52,7 @@ function onPlaceChanged() {
                 searchAttractions();
             }
             else {
-                $('#searchMap').attr("placeholder", "Search");
+                $('#mymodal').modal('show');
             }
         }
 
@@ -64,7 +64,7 @@ function onPlaceChanged() {
                 searchFood();
             }
             else {
-                $('#searchMap').attr("placeholder", "Search");
+                $('#mymodal').modal('show');
             }
         }
 
