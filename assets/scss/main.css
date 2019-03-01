@@ -18,7 +18,7 @@
 body {
   font-family: "Poppins", sans-serif;
   font-size: 1em;
-  color: #fff; }
+  color: #000; }
 
 /*----------------Navbar---------------*/
 /*----------------Logo---------------*/
@@ -27,6 +27,7 @@ body {
 
 /*----------------Intro Section---------------*/
 .hero-image {
+  color: #fff;
   position: relative;
   min-height: 500px;
   width: 100%;

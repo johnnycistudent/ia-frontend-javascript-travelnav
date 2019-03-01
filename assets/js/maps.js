@@ -5,6 +5,7 @@ var map;
 var markers = [];
 var infoWindow;
 var places;
+var google;
 
 
 //----- Initiliase Map -----
@@ -24,9 +25,10 @@ function initMap() {
     places = new google.maps.places.PlacesService(map);
 
     autocomplete.addListener('place_changed', onPlaceChanged);
-    document.getElementById('attractions').addEventListener('change', onPlaceChanged);
-    document.getElementById('food').addEventListener('change', onPlaceChanged);
-    document.getElementById('hotels').addEventListener('change', onPlaceChanged);
+    document.getElementById('attractions').addEventListener('click', onPlaceChanged);
+    document.getElementById('food').addEventListener('click', onPlaceChanged);
+    document.getElementById('hotels').addEventListener('click', onPlaceChanged);
+    google.maps.event.addListener(map, 'dragend', onMapDrag);
 
 
 
@@ -38,40 +40,62 @@ function initMap() {
 }
 
 function onPlaceChanged() {
+    // setTimeout to allow view update and correct class applied to buttons
+    setTimeout(function() {
+
+
+        if ($(".attractions-button").hasClass('active')) {
+            var place = autocomplete.getPlace();
+            if (place && place.geometry) {
+                map.panTo(place.geometry.location);
+                map.setZoom(15);
+                searchAttractions();
+            }
+            else {
+                $('#searchMap').attr("placeholder", "Search");
+            }
+        }
+
+        else if ($(".food-button").hasClass('active')) {
+            var place = autocomplete.getPlace();
+            if (place && place.geometry) {
+                map.panTo(place.geometry.location);
+                map.setZoom(15);
+                searchFood();
+            }
+            else {
+                $('#searchMap').attr("placeholder", "Search");
+            }
+        }
+
+        else if ($(".hotels-button").hasClass('active')) {
+            var place = autocomplete.getPlace();
+            if (place && place.geometry) {
+                map.panTo(place.geometry.location);
+                map.setZoom(15);
+                searchHotels();
+            }
+            else {
+                $('#mymodal').modal('show');
+            }
+        }
+
+
+    }, 100);
+}
+
+function onMapDrag() {
     if ($(".attractions-button").hasClass('active')) {
-        var place = autocomplete.getPlace();
-        if (place.geometry) {
-            map.panTo(place.geometry.location);
-            map.setZoom(15);
-            searchAttractions();
-        }
-        else {
-            $('#mapSearch').attr("placeholder", "Search");
-        }
+        searchAttractions();
     }
 
     else if ($(".food-button").hasClass('active')) {
-        var place = autocomplete.getPlace();
-        if (place.geometry) {
-            map.panTo(place.geometry.location);
-            map.setZoom(15);
-            searchFood();
-        }
-        else {
-            $('#mapSearch').attr("placeholder", "Search");
-        }
+
+        searchFood();
     }
 
     else if ($(".hotels-button").hasClass('active')) {
-        var place = autocomplete.getPlace();
-        if (place.geometry) {
-            map.panTo(place.geometry.location);
-            map.setZoom(15);
-            searchHotels();
-        }
-        else {
-            $('#mapSearch').attr("placeholder", "Search");
-        }
+        searchHotels();
     }
 }
 
@@ -83,7 +107,7 @@ function searchAttractions() {
 
     places.nearbySearch(search, function(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-            clearResults();
+            //clearResults();
             clearMarkers();
 
             // Create Marker
@@ -96,7 +120,7 @@ function searchAttractions() {
                 markers[i].placeResult = results[i];
                 google.maps.event.addListener(markers[i], 'click', showInfoWindow);
                 setTimeout(dropMarkers(i), i * 100);
-                
+
             }
         }
     });
@@ -110,7 +134,7 @@ function searchFood() {
 
     places.nearbySearch(search, function(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-            clearResults();
+            //clearResults();
             clearMarkers();
 
             // Create Marker
@@ -137,7 +161,7 @@ function searchHotels() {
 
     places.nearbySearch(search, function(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-            clearResults();
+           // clearResults();
             clearMarkers();
 
             // Create Marker
@@ -150,9 +174,18 @@ function searchHotels() {
                 markers[i].placeResult = results[i];
                 google.maps.event.addListener(markers[i], 'click', showInfoWindow);
                 setTimeout(dropMarkers(i), i * 100);
-                
+
             }
         }
+
+        if (!results[0]) {
+            $('#results').show();
+            setTimeout(function() {
+                $('#results').hide();
+            }, 2000);
+        }
+
+
     });
 }
 
@@ -171,16 +204,10 @@ function clearMarkers() {
     markers = [];
 }
 
-function clearResults() {
-    var results = document.getElementById('results');
-    while (results.childNodes[0]) {
-        results.removeChild(results.childNodes[0]);
-    }
-}
 
 function showInfoWindow() {
     var marker = this;
-    places.getDetails({placeId: marker.placeResult.place_id},
+    places.getDetails({ placeId: marker.placeResult.place_id },
         function(place, status) {
             if (status !== google.maps.places.PlacesServiceStatus.OK) {
                 return;
@@ -196,3 +223,13 @@ function setPlaceDetails(place) {
     document.getElementById('place-address').textContent = place.vicinity;
     document.getElementById('place-number').textContent = place.formatted_phone_number;
 }
+
+// Scroll to Map section button
+$('cta').click(function() {
+    $('html, body').animate({ scrollTop: $('.search').offset().top }, 1000);
+});
+
+// Stops page reloading when "Enter" or "Return" are pressed in search box
+$("#mapSearch").submit(function(e) {
+    e.preventDefault();
+});
