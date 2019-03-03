@@ -29,6 +29,9 @@ function initMap() {
     document.getElementById('food').addEventListener('click', onPlaceChanged);
     document.getElementById('hotels').addEventListener('click', onPlaceChanged);
     google.maps.event.addListener(map, 'dragend', onMapDrag);
+    document.getElementById('center-paris').addEventListener('click', findParis);
+    document.getElementById('center-rome').addEventListener('click', findRome);
+    document.getElementById('center-newyork').addEventListener('click', findNewYork);
 
 
 
@@ -99,6 +102,33 @@ function onMapDrag() {
     }
 }
 
+function findParis() {
+    var latLng = new google.maps.LatLng(48.8566, 2.3522);
+    setTimeout(function() {
+        map.setZoom(15);
+        map.panTo(latLng);
+        searchAttractions();
+    }, 800);
+}
+
+function findRome() {
+    var latLng = new google.maps.LatLng(41.9028, 12.4964);
+    setTimeout(function() {
+        map.setZoom(15);
+        map.panTo(latLng);
+        searchAttractions();
+    }, 800);
+}
+
+function findNewYork() {
+    var latLng = new google.maps.LatLng(40.758896, -73.985130);
+    setTimeout(function() {
+        map.setZoom(15);
+        map.panTo(latLng);
+        searchAttractions();
+    }, 800);
+}
+
 function searchAttractions() {
     var search = {
         bounds: map.getBounds(),
@@ -161,7 +191,7 @@ function searchHotels() {
 
     places.nearbySearch(search, function(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-           // clearResults();
+            // clearResults();
             clearMarkers();
 
             // Create Marker
@@ -226,6 +256,20 @@ function setPlaceDetails(place) {
 
 // Scroll to Map section button
 $('cta').click(function() {
+    $('html, body').animate({ scrollTop: $('.search').offset().top }, 1000);
+});
+
+
+$('#center-paris').click(function() {
+    $('html, body').animate({ scrollTop: $('.search').offset().top }, 1000);
+});
+
+
+$('#center-rome').click(function() {
+    $('html, body').animate({ scrollTop: $('.search').offset().top }, 1000);
+});
+
+$('#center-newyork').click(function() {
     $('html, body').animate({ scrollTop: $('.search').offset().top }, 1000);
 });
 
