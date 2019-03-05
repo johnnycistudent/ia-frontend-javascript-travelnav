@@ -74,6 +74,63 @@
 
         <!-----User Introduction----->
 
+        <!-----Map section----->
+        <div class="map-section">
+            <div class="row">
+                <div class="col-12">
+                    <div class="intro">
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+                            nisl ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+                <div class="col-12 search">
+                    <form class="form-inline">
+                        <input id="searchMap" class="form-control col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3" type="text" placeholder="Enter a location" required/>
+                    </form>
+                    <div class="btn-group btn-group-toggle col-lg-10 offset-lg-1" data-toggle="buttons">
+                        <label id="attractions" class="btn btn-primary attractions-button active">
+                            <input type="radio" name="options"  autocomplete="off" checked="">
+                            Attractions
+                            <br><i class="fas fa-camera"></i>
+                        </label>
+                        <label id="food" class="btn btn-primary food-button">
+                            <input type="radio" name="options"  autocomplete="off"  checked="">
+                            Restaurants
+                            <br><i class="fas fa-utensils"></i>
+                        </label>
+                        <label id="hotels" class="btn btn-primary hotels-button">
+                            <input type="radio" name="options"  autocomplete="off"  checked=""> 
+                            Hotels
+                            <br><i class="fas fa-bed"></i>
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-lg-10 offset-lg-1 map-wrapper">
+                    <div id="map">
+                    </div>
+                </div>
+            </div>
+
+            <!-----Info Window----->
+
+            <div style="display: none">
+                <div id="place-info">
+                    <ul class="place-list">
+                        <li id="place-name">Name:</li>
+                        <li id="place-address">Address:</li>
+                        <li id="place-number">Number:</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-----/Info Window----->
+
+        </div>
+
+
+
         <div class="row">
             <div class="col-12">
                 <div class="city-break">
@@ -137,54 +194,7 @@
 
         <!-----/User Introduction----->
 
-        <!-----Map section my-2 my-lg-0      mr-sm-2----->
-        <div class="map-section">
-            <div class="row">
-                <div class="col-12 col-lg-4 search">
-                    <form class="form-inline">
-                        <input id="searchMap" class="form-control col-sm-12 col-md-6 offset-md-3 col-lg-12 offset-lg-0" type="text" placeholder="Enter a location" required/>
-                    </form>
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label id="attractions" class="btn btn-primary attractions-button active">
-                            <input type="radio" name="options"  autocomplete="off" checked="">
-                            Attractions
-                            <br><i class="fas fa-camera"></i>
-                        </label>
-                        <label id="food" class="btn btn-primary food-button">
-                            <input type="radio" name="options"  autocomplete="off"  checked="">
-                            Restaurants
-                            <br><i class="fas fa-utensils"></i>
-                        </label>
-                        <label id="hotels" class="btn btn-primary hotels-button">
-                            <input type="radio" name="options"  autocomplete="off"  checked=""> 
-                            Hotels
-                            <br><i class="fas fa-bed"></i>
-                        </label>
-                    </div>
 
-                </div>
-
-                <div class="col-12 col-lg-8 map-wrapper">
-                    <div id="map">
-                    </div>
-                </div>
-            </div>
-
-            <!-----Info Window----->
-
-            <div style="display: none">
-                <div id="place-info">
-                    <ul class="place-list">
-                        <li id="place-name">Name:</li>
-                        <li id="place-address">Address:</li>
-                        <li id="place-number">Number:</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-----/Info Window----->
-
-        </div>
 
     </section>
 

@@ -14,6 +14,9 @@
   padding-top: 15px;
   color: #fff !important; }
 
+.hovereffect a.info:hover, .btn-group .btn-primary:hover, .hovereffect a.info:focus:hover, .btn-group .btn-primary:focus, .hovereffect a.info:active:hover, .btn-group .btn-primary:active {
+  cursor: pointer; }
+
 /*----------------Body---------------*/
 body {
   font-family: "Poppins", sans-serif;
@@ -140,6 +143,7 @@ section {
   filter: alpha(opacity=100); }
 
 .hovereffect:hover a.info {
+  color: #fff;
   opacity: 1;
   filter: alpha(opacity=100);
   -ms-transform: translatey(0);
@@ -208,12 +212,15 @@ footer {
 
 /*-----------Media Queries---------*/
 @media (max-width: 576px) {
-  .examples {
-    min-height: 300px; }
-
+  /*-------ensures the map wrapper, search bar and button group are the same width on smaller devices------*/
   .map-section {
-    padding: 15px; }
+    padding: 10px; }
 
+  .btn-group {
+    padding-right: 0px;
+    padding-left: 0px; }
+
+  /*-----------Reduces size of the "City Break" image of a city skyline on small devices---------*/
   .city-break {
     background-image: url(../images/montreal.jpg);
     background-size: cover;

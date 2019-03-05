@@ -14,6 +14,7 @@ function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 2,
         center: {
+        //  inits the map with a view of every continent on large devices and centres on Europe and Africa in a smaller device
             lat: 10.519325,
             lng: 7.392709
         }
@@ -42,11 +43,11 @@ function initMap() {
     });
 }
 
+
+// This function detects a place has been changed on the map and triggers a function to search for the establishment its button active class 
 function onPlaceChanged() {
     // setTimeout to allow view update and correct class applied to buttons
     setTimeout(function() {
-
-
         if ($('.attractions-button').hasClass('active')) {
             var place = autocomplete.getPlace();
             if (place && place.geometry) {
@@ -54,6 +55,7 @@ function onPlaceChanged() {
                 map.setZoom(15);
                 searchAttractions();
             }
+            // shows instructional modal if "Attractions" button is active but nothing is entered in the search bar
             else {
                 $('#mymodal').modal('show');
             }
@@ -66,6 +68,7 @@ function onPlaceChanged() {
                 map.setZoom(15);
                 searchFood();
             }
+            // shows instructional modal if "Food" button is active but nothing is entered in the search bar
             else {
                 $('#mymodal').modal('show');
             }
@@ -78,6 +81,7 @@ function onPlaceChanged() {
                 map.setZoom(15);
                 searchHotels();
             }
+            // shows instructional modal if "Hotels" button is active but nothing is entered in the search bar
             else {
                 $('#mymodal').modal('show');
             }
@@ -85,13 +89,13 @@ function onPlaceChanged() {
     }, 100);
 }
 
+// This function allows the user to change a place on the map using their cursor without the map snapping back to the view port from the autocomplete result
 function onMapDrag() {
     if ($('.attractions-button').hasClass('active')) {
         searchAttractions();
     }
 
     else if ($('.food-button').hasClass('active')) {
-
         searchFood();
     }
 
@@ -100,6 +104,7 @@ function onMapDrag() {
     }
 }
 
+// Centres the map on Paris when the "Explore Paris" button is clicked
 function findParis() {
     var latLng = new google.maps.LatLng(48.8566, 2.3522);
     setTimeout(function() {
@@ -109,6 +114,7 @@ function findParis() {
     }, 800);
 }
 
+// Centres the map on Rome when the "Explore Rome" button is clicked
 function findRome() {
     var latLng = new google.maps.LatLng(41.9028, 12.4964);
     setTimeout(function() {
@@ -118,6 +124,7 @@ function findRome() {
     }, 800);
 }
 
+// Centres the map on New York when the "Explore New York" button is clicked
 function findNewYork() {
     var latLng = new google.maps.LatLng(40.758896, -73.985130);
     setTimeout(function() {
@@ -127,6 +134,7 @@ function findNewYork() {
     }, 800);
 }
 
+// Searches attractions when onPlaceChanged and onMapDrag functions are triggered by an eventlistener
 function searchAttractions() {
     var search = {
         bounds: map.getBounds(),
@@ -147,12 +155,12 @@ function searchAttractions() {
                 markers[i].placeResult = results[i];
                 google.maps.event.addListener(markers[i], 'click', showInfoWindow);
                 setTimeout(dropMarkers(i), i * 100);
-
             }
         }
     });
 }
 
+// Searches food establishments when onPlaceChanged and onMapDrag functions are triggered by an eventlistener
 function searchFood() {
     var search = {
         bounds: map.getBounds(),
@@ -178,6 +186,7 @@ function searchFood() {
     });
 }
 
+// Searches establishments to stay when onPlaceChanged and onMapDrag functions are triggered by an eventlistener
 function searchHotels() {
     var search = {
         bounds: map.getBounds(),
@@ -213,12 +222,14 @@ function searchHotels() {
     });
 }
 
+// Places markers on map, triggered by searchAttractions/Food/Hotels functions
 function dropMarkers(i) {
     return function() {
         markers[i].setMap(map);
     };
 }
 
+//Clears markers when onPlaceChanged functions is triggered
 function clearMarkers() {
     for (var i = 0; i < markers.length; i++) {
         if (markers[i]) {
@@ -228,7 +239,7 @@ function clearMarkers() {
     markers = [];
 }
 
-
+// Displays infoWindow for establishments on map
 function showInfoWindow() {
     var marker = this;
     places.getDetails({ placeId: marker.placeResult.place_id },
@@ -248,30 +259,32 @@ function setPlaceDetails(place) {
     document.getElementById('place-number').textContent = place.formatted_phone_number;
 }
 
-// Scroll to Map section button
+// Scrolls smoothly to Map section when the CTA "Navigate your Travel" button is pressed
 $('cta').click(function() {
     $('html, body').animate({ scrollTop: $('.search').offset().top }, 1000);
 });
 
+// Scrolls smoothly to Map section when the Navbar "Map" link is pressed
 $('#map-scroll').click(function() {
     $('html, body').animate({ scrollTop: $('.search').offset().top }, 1000);
 });
 
+// Scrolls smoothly to "City Breaks" section when the Navbar "City Breaks" link is pressed
+$('#city-scroll').click(function() {
+    $('html, body').animate({ scrollTop: $('.city-break').offset().top }, 1000);
+});
 
-// $('#city-scroll').click(function() {
-//     $('html, body').animate({ scrollTop: $('.city-break').offset().top }, 1000);
-//     $('.hovereffect').on('mouseenter', over).on('mouseleave', out);
-// });
-
+// Scrolls smoothly to the Map section when the "Explore Paris" link is pressed
 $('#center-paris').click(function() {
     $('html, body').animate({ scrollTop: $('.search').offset().top }, 1000);
 });
 
-
+// Scrolls smoothly to the Map section when the "Explore Rome" link is pressed
 $('#center-rome').click(function() {
     $('html, body').animate({ scrollTop: $('.search').offset().top }, 1000);
 });
 
+// Scrolls smoothly to the Map section when the "Explore New York" link is pressed
 $('#center-newyork').click(function() {
     $('html, body').animate({ scrollTop: $('.search').offset().top }, 1000);
 });
