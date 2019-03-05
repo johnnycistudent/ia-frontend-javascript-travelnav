@@ -11,7 +11,7 @@ var google;
 //----- Initiliase Map -----
 
 function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
+    map = new google.maps.Map(document.getElementById('map'), {
         zoom: 2,
         center: {
             lat: 10.519325,
@@ -47,7 +47,7 @@ function onPlaceChanged() {
     setTimeout(function() {
 
 
-        if ($(".attractions-button").hasClass('active')) {
+        if ($('.attractions-button').hasClass('active')) {
             var place = autocomplete.getPlace();
             if (place && place.geometry) {
                 map.panTo(place.geometry.location);
@@ -59,7 +59,7 @@ function onPlaceChanged() {
             }
         }
 
-        else if ($(".food-button").hasClass('active')) {
+        else if ($('.food-button').hasClass('active')) {
             var place = autocomplete.getPlace();
             if (place && place.geometry) {
                 map.panTo(place.geometry.location);
@@ -71,7 +71,7 @@ function onPlaceChanged() {
             }
         }
 
-        else if ($(".hotels-button").hasClass('active')) {
+        else if ($('.hotels-button').hasClass('active')) {
             var place = autocomplete.getPlace();
             if (place && place.geometry) {
                 map.panTo(place.geometry.location);
@@ -86,16 +86,16 @@ function onPlaceChanged() {
 }
 
 function onMapDrag() {
-    if ($(".attractions-button").hasClass('active')) {
+    if ($('.attractions-button').hasClass('active')) {
         searchAttractions();
     }
 
-    else if ($(".food-button").hasClass('active')) {
+    else if ($('.food-button').hasClass('active')) {
 
         searchFood();
     }
 
-    else if ($(".hotels-button").hasClass('active')) {
+    else if ($('.hotels-button').hasClass('active')) {
         searchHotels();
     }
 }
@@ -135,7 +135,6 @@ function searchAttractions() {
 
     places.nearbySearch(search, function(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-            //clearResults();
             clearMarkers();
 
             // Create Marker
@@ -162,7 +161,6 @@ function searchFood() {
 
     places.nearbySearch(search, function(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-            //clearResults();
             clearMarkers();
 
             // Create Marker
@@ -175,7 +173,6 @@ function searchFood() {
                 markers[i].placeResult = results[i];
                 google.maps.event.addListener(markers[i], 'click', showInfoWindow);
                 setTimeout(dropMarkers(i), i * 100);
-                //addResult(results[i], i);
             }
         }
     });
@@ -189,7 +186,6 @@ function searchHotels() {
 
     places.nearbySearch(search, function(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-            // clearResults();
             clearMarkers();
 
             // Create Marker
@@ -262,10 +258,10 @@ $('#map-scroll').click(function() {
 });
 
 
-$('#city-scroll').click(function() {
-    $('html, body').animate({ scrollTop: $('.city-break').offset().top }, 1000);
-    $('.hovereffect').on('mouseenter', over).on('mouseleave', out);
-});
+// $('#city-scroll').click(function() {
+//     $('html, body').animate({ scrollTop: $('.city-break').offset().top }, 1000);
+//     $('.hovereffect').on('mouseenter', over).on('mouseleave', out);
+// });
 
 $('#center-paris').click(function() {
     $('html, body').animate({ scrollTop: $('.search').offset().top }, 1000);
@@ -281,6 +277,6 @@ $('#center-newyork').click(function() {
 });
 
 // Stops page reloading when "Enter" or "Return" are pressed in search box
-$("#mapSearch").submit(function(e) {
+$('#mapSearch').submit(function(e) {
     e.preventDefault();
 });
