@@ -69,11 +69,21 @@ section {
     min-height: 500px;
     width: 100%;
     background: $section-color;
-    .section-heading {
-        margin-top: 10px;
-        margin-bottom: 20px;
-    }
+}
 
+.city-break {
+    background-image: url(../images/montreal.jpg);
+    background-size: cover;
+    min-height: 200px;
+}
+
+.section-heading {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 700;
+    font-family: $brand-font;
 }
 
 .recommended {
@@ -86,6 +96,8 @@ section {
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
+
+/*---Hover effect code taken and edited from programmer Mike Young on github. Link to his website in README.md---*/
 
 .hovereffect {
     width: 100%;
@@ -118,21 +130,20 @@ section {
     transition: all .4s linear;
 }
 
-.hovereffect h2 {
-    text-transform: uppercase;
-    color: #fff;
-    text-align: center;
-    position: relative;
-    font-size: 17px;
-    background: rgba(0, 0, 0, 0.6);
-    -webkit-transform: translatey(-100px);
-    -ms-transform: translatey(-100px);
-    transform: translatey(-100px);
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-    padding: 10px;
-}
-
+// .hovereffect h2 {
+//     text-transform: uppercase;
+//     color: #fff;
+//     text-align: center;
+//     position: relative;
+//     font-size: 17px;
+//     background: rgba(0, 0, 0, 0.6);
+//     -webkit-transform: translatey(-100px);
+//     -ms-transform: translatey(-100px);
+//     transform: translatey(-100px);
+//     -webkit-transition: all .2s ease-in-out;
+//     transition: all .2s ease-in-out;
+//     padding: 10px;
+// }
 .hovereffect a.info {
     text-decoration: none;
     display: inline-block;
@@ -163,7 +174,7 @@ section {
     filter: alpha(opacity=100);
 }
 
-.hovereffect:hover h2,
+// .hovereffect:hover h2,
 .hovereffect:hover a.info {
     opacity: 1;
     filter: alpha(opacity=100);
@@ -176,6 +187,8 @@ section {
     -webkit-transition-delay: .2s;
     transition-delay: .2s;
 }
+
+
 
 #paris {
     background-image: url(../images/paris.jpg);
@@ -199,10 +212,19 @@ section {
     .btn-primary {
         background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff);
         &:hover {
-            background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #267fdf, #3d8de3);
+            background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #2988ee, #4194ed);
+            moz-transition: all .6s ease-in-out;
+            -o-transition: all .6s ease-in-out;
+            -webkit-transition: all .6s ease-in-out;
+            transition: all .6s ease-in-out;
         }
-        &:focus {
+        &:focus,
+        &:active {
             background: linear-gradient(to left, #0551a1, #064b94, #1a6ec7, #1f6fc5, #367fcd);
+            moz-transition: all .6s ease-in-out;
+            -o-transition: all .6s ease-in-out;
+            -webkit-transition: all .6s ease-in-out;
+            transition: all .6s ease-in-out;
         }
     }
 }
@@ -217,6 +239,10 @@ section {
     position: relative;
     overflow: hidden;
     min-height: 350px;
+}
+
+.form-inline {
+    padding-bottom: 8px;
 }
 
 /*---------------Modal---------------*/
@@ -242,8 +268,19 @@ footer {
 
 /*-----------Media Queries---------*/
 
-@media (min-width: 576px) {
+@media (max-width: 576px) {
     .examples {
         min-height: 300px;
     }
+
+    .map-section {
+        padding: 15px;
+    }
+    .city-break {
+        background-image: url(../images/montreal.jpg);
+        background-size: cover;
+        min-height: 150px;
+    }
 }
+
+@media (min-width: 768px) and (max-width: 991.98px) {}

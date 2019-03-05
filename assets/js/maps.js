@@ -82,8 +82,6 @@ function onPlaceChanged() {
                 $('#mymodal').modal('show');
             }
         }
-
-
     }, 100);
 }
 
@@ -259,6 +257,15 @@ $('cta').click(function() {
     $('html, body').animate({ scrollTop: $('.search').offset().top }, 1000);
 });
 
+$('#map-scroll').click(function() {
+    $('html, body').animate({ scrollTop: $('.search').offset().top }, 1000);
+});
+
+
+$('#city-scroll').click(function() {
+    $('html, body').animate({ scrollTop: $('.city-break').offset().top }, 1000);
+    $('.hovereffect').on('mouseenter', over).on('mouseleave', out);
+});
 
 $('#center-paris').click(function() {
     $('html, body').animate({ scrollTop: $('.search').offset().top }, 1000);
