@@ -14,7 +14,7 @@ function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 2,
         center: {
-        //  inits the map with a view of every continent on large devices and centres on Europe and Africa in a smaller device
+            //  inits the map with a view of every continent on large devices and centres on Europe and Africa in a smaller device
             lat: 10.519325,
             lng: 7.392709
         }
@@ -255,16 +255,10 @@ function setPlaceDetails(place) {
     document.getElementById('place-address').textContent = place.vicinity;
     document.getElementById('place-number').textContent = place.formatted_phone_number;
     document.getElementById('place-url').innerHTML = '<a href="' + place.website + '"target="_blank">' + 'Go to Website' + '</a>';
-    // if (!place.website) {
-    //     $('.cover').show();
-    // }
-    if (place.website === null) {
-        $("#place-url").css('display', 'none');
-    }
 }
 
 // Scrolls smoothly to Map section when the CTA "Navigate your Travel" button is pressed
-$('cta').click(function() {
+$('#cta').click(function() {
     $('html, body').animate({ scrollTop: $('.search').offset().top }, 1000);
 });
 

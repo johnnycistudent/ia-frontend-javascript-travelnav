@@ -14,7 +14,7 @@
   padding-top: 15px;
   color: #fff !important; }
 
-.btn-group .btn-primary:hover, .hovereffect a.info:hover, .btn-group .btn-primary:focus, .hovereffect a.info:focus:hover, .btn-group .btn-primary:active, .hovereffect a.info:active:hover {
+.btn-success:hover, .btn-success:hover:not(:disabled):not(.disabled):active:focus, .btn-group .btn-primary:hover, .hovereffect a.info:hover, .btn-success:focus, .btn-success:focus:not(:disabled):not(.disabled):active, .btn-group .btn-primary:focus, .hovereffect a.info:focus:hover, .btn-success:active, .btn-success:active:not(:disabled):not(.disabled):focus, .btn-group .btn-primary:active, .hovereffect a.info:active:hover {
   cursor: pointer; }
 
 /*----------------Body---------------*/
@@ -55,9 +55,21 @@ body {
 
 .btn-success {
   color: #fff;
-  background-color: #007bff;
-  border-color: #28a745;
-  border-radius: 16px; }
+  border-radius: 16px;
+  background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff); }
+  .btn-success:hover {
+    background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #2988ee, #4194ed);
+    moz-transition: all .6s ease-in-out;
+    -o-transition: all .6s ease-in-out;
+    -webkit-transition: all .6s ease-in-out;
+    transition: all .6s ease-in-out; }
+  .btn-success:focus, .btn-success:active, .btn-success:not(:disabled):not(.disabled):active:focus {
+    background: linear-gradient(to left, #0551a1, #064b94, #1a6ec7, #1f6fc5, #367fcd);
+    moz-transition: all .6s ease-in-out;
+    -o-transition: all .6s ease-in-out;
+    -webkit-transition: all .6s ease-in-out;
+    transition: all .6s ease-in-out;
+    box-shadow: 0 0 0 0.2rem #05509e; }
 
 /*----------------Main---------------*/
 section {
