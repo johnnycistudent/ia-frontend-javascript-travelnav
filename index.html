@@ -115,9 +115,10 @@
             <div style="display: none">
                 <div id="place-info">
                     <ul class="place-list">
-                        <li id="place-name">Name:</li>
-                        <li id="place-address">Address:</li>
-                        <li id="place-number">Number:</li>
+                        <li id="place-name"></li>
+                        <li id="place-address"></li>
+                        <li id="place-number"></li>
+                        <li id="place-url"></li>
                     </ul>
                 </div>
             </div>
@@ -127,7 +128,7 @@
         </div>
 
 
-
+        <!-- City Breaks Section-->
         <div class="row">
             <div class="col-12">
                 <div class="city-break">
@@ -176,7 +177,6 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                         <div class="hovereffect">
                             <div class="city-image" id="newyork">
-
                             </div>
                             <div class="overlay">
                                 <a class="info" id="center-newyork">Explore New York</a>
@@ -197,7 +197,7 @@
 
     <!-----/Main Section----->
 
-    <!-----Modal from edited from Bootstrap's documentation----->
+    <!-----Modal edited from Bootstrap's documentation----->
 
     <div class="modal" id="mymodal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered text-center" role="document">
@@ -215,24 +215,23 @@
     <!-----/Modal from edited from Bootstrap's documentation----->
 
 
-
+    <!-- Footer -->
+    
     <footer>
         <div class="container">
             <p class="text-center">JOC © 2019</p>
         </div>
     </footer>
 
+    <!-- /Footer -->
 
-
-
-
-    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="assets/js/page.js"></script>
+    <!-- Map JavaScript -->
     <script src="assets/js/maps.js"></script>
+    <!-- Google Maps & Places API -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiiPeDDkYMkYnoiDKDtXYW9jFoNOahXGQ&libraries=places&callback=initMap">
     </script>
 

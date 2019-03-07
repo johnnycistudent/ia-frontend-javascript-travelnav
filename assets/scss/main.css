@@ -14,7 +14,7 @@
   padding-top: 15px;
   color: #fff !important; }
 
-.hovereffect a.info:hover, .btn-group .btn-primary:hover, .hovereffect a.info:focus:hover, .btn-group .btn-primary:focus, .hovereffect a.info:active:hover, .btn-group .btn-primary:active {
+.btn-group .btn-primary:hover, .hovereffect a.info:hover, .btn-group .btn-primary:focus, .hovereffect a.info:focus:hover, .btn-group .btn-primary:active, .hovereffect a.info:active:hover {
   cursor: pointer; }
 
 /*----------------Body---------------*/
@@ -65,11 +65,49 @@ section {
   width: 100%;
   background: #ebf5ff; }
 
-.city-break {
-  background-image: url(../images/montreal.jpg);
-  background-size: cover;
-  min-height: 200px; }
+/*------------Map Buttons------------*/
+.btn-group {
+  width: 100%;
+  padding-bottom: 8px; }
+  .btn-group .btn-primary {
+    background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff); }
+    .btn-group .btn-primary:hover {
+      background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #2988ee, #4194ed);
+      moz-transition: all .6s ease-in-out;
+      -o-transition: all .6s ease-in-out;
+      -webkit-transition: all .6s ease-in-out;
+      transition: all .6s ease-in-out; }
+    .btn-group .btn-primary:focus, .btn-group .btn-primary:active {
+      background: linear-gradient(to left, #0551a1, #064b94, #1a6ec7, #1f6fc5, #367fcd);
+      moz-transition: all .6s ease-in-out;
+      -o-transition: all .6s ease-in-out;
+      -webkit-transition: all .6s ease-in-out;
+      transition: all .6s ease-in-out; }
 
+/*----------------Map----------------*/
+.map-wrapper {
+  min-height: 350px; }
+
+#map {
+  position: relative;
+  overflow: hidden;
+  min-height: 350px; }
+
+.form-inline {
+  padding-bottom: 8px; }
+
+/*-----Info Window-------*/
+.place-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+  font-family: arial;
+  font-size: 13px; }
+  .place-list #place-name {
+    font-size: 14px;
+    font-weight: bold; }
+
+/*--------City Break Section-------*/
 .section-heading {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -77,6 +115,11 @@ section {
   color: #fff;
   font-weight: 700;
   font-family: "Muli", sans-serif; }
+
+.city-break {
+  background-image: url(../images/montreal.jpg);
+  background-size: cover;
+  min-height: 200px; }
 
 .recommended {
   padding: 15px; }
@@ -86,6 +129,17 @@ section {
   background-size: cover;
   background-size: 100% 100%;
   background-repeat: no-repeat; }
+
+/*-----City Break recommended travel locations images-------*/
+#paris {
+  background-image: url(../images/paris.jpg); }
+
+#rome {
+  background-image: url(../images/rome.jpg);
+  min-height: 350px; }
+
+#newyork {
+  background-image: url(../images/newyork.jpg); }
 
 /*---Hover effect code taken and edited from programmer Mike Young on github. Link to his website in README.md---*/
 .hovereffect {
@@ -154,48 +208,7 @@ section {
   -webkit-transition-delay: .2s;
   transition-delay: .2s; }
 
-#paris {
-  background-image: url(../images/paris.jpg); }
-
-#rome {
-  background-image: url(../images/rome.jpg);
-  min-height: 350px; }
-
-#newyork {
-  background-image: url(../images/newyork.jpg); }
-
-/*------------Map Buttons------------*/
-.btn-group {
-  width: 100%;
-  padding-bottom: 8px; }
-  .btn-group .btn-primary {
-    background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff); }
-    .btn-group .btn-primary:hover {
-      background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #2988ee, #4194ed);
-      moz-transition: all .6s ease-in-out;
-      -o-transition: all .6s ease-in-out;
-      -webkit-transition: all .6s ease-in-out;
-      transition: all .6s ease-in-out; }
-    .btn-group .btn-primary:focus, .btn-group .btn-primary:active {
-      background: linear-gradient(to left, #0551a1, #064b94, #1a6ec7, #1f6fc5, #367fcd);
-      moz-transition: all .6s ease-in-out;
-      -o-transition: all .6s ease-in-out;
-      -webkit-transition: all .6s ease-in-out;
-      transition: all .6s ease-in-out; }
-
-/*----------------Map----------------*/
-.map-wrapper {
-  min-height: 350px; }
-
-#map {
-  position: relative;
-  overflow: hidden;
-  min-height: 350px; }
-
-.form-inline {
-  padding-bottom: 8px; }
-
-/*---------------Modal---------------*/
+/*---------------Instructional Map Modal---------------*/
 .modal-footer {
   display: block;
   border-top: 0; }

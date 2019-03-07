@@ -71,11 +71,66 @@ section {
     background: $section-color;
 }
 
-.city-break {
-    background-image: url(../images/montreal.jpg);
-    background-size: cover;
-    min-height: 200px;
+/*------------Map Buttons------------*/
+
+.btn-group {
+    width: 100%;
+    padding-bottom: 8px;
+    .btn-primary {
+        background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff);
+        &:hover {
+            @extend %btn;
+            background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #2988ee, #4194ed);
+            moz-transition: all .6s ease-in-out;
+            -o-transition: all .6s ease-in-out;
+            -webkit-transition: all .6s ease-in-out;
+            transition: all .6s ease-in-out;
+        }
+        &:focus,
+        &:active {
+            @extend %btn;
+            background: linear-gradient(to left, #0551a1, #064b94, #1a6ec7, #1f6fc5, #367fcd);
+            moz-transition: all .6s ease-in-out;
+            -o-transition: all .6s ease-in-out;
+            -webkit-transition: all .6s ease-in-out;
+            transition: all .6s ease-in-out;
+        }
+    }
 }
+
+/*----------------Map----------------*/
+
+.map-wrapper {
+    min-height: 350px;
+}
+
+#map {
+    position: relative;
+    overflow: hidden;
+    min-height: 350px;
+}
+
+.form-inline {
+    padding-bottom: 8px;
+}
+
+/*-----Info Window-------*/
+
+.place-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+    font-family: arial;
+    font-size: 13px;
+    #place-name{
+        font-size: 14px;
+        font-weight: bold;
+    }
+}
+
+
+
+/*--------City Break Section-------*/
 
 .section-heading {
     margin-top: 20px;
@@ -84,6 +139,12 @@ section {
     color: #fff;
     font-weight: 700;
     font-family: $brand-font;
+}
+
+.city-break {
+    background-image: url(../images/montreal.jpg);
+    background-size: cover;
+    min-height: 200px;
 }
 
 .recommended {
@@ -96,6 +157,22 @@ section {
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
+
+/*-----City Break recommended travel locations images-------*/
+
+#paris {
+    background-image: url(../images/paris.jpg);
+}
+
+#rome {
+    background-image: url(../images/rome.jpg);
+    min-height: 350px;
+}
+
+#newyork {
+    background-image: url(../images/newyork.jpg);
+}
+
 
 /*---Hover effect code taken and edited from programmer Mike Young on github. Link to his website in README.md---*/
 
@@ -177,64 +254,7 @@ section {
 
 
 
-#paris {
-    background-image: url(../images/paris.jpg);
-}
-
-#rome {
-    background-image: url(../images/rome.jpg);
-    min-height: 350px;
-}
-
-#newyork {
-    background-image: url(../images/newyork.jpg);
-}
-
-
-/*------------Map Buttons------------*/
-
-.btn-group {
-    width: 100%;
-    padding-bottom: 8px;
-    .btn-primary {
-        background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff);
-        &:hover {
-            @extend %btn; 
-            background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #2988ee, #4194ed);
-            moz-transition: all .6s ease-in-out;
-            -o-transition: all .6s ease-in-out;
-            -webkit-transition: all .6s ease-in-out;
-            transition: all .6s ease-in-out;
-        }
-        &:focus,
-        &:active {
-            @extend %btn;
-            background: linear-gradient(to left, #0551a1, #064b94, #1a6ec7, #1f6fc5, #367fcd);
-            moz-transition: all .6s ease-in-out;
-            -o-transition: all .6s ease-in-out;
-            -webkit-transition: all .6s ease-in-out;
-            transition: all .6s ease-in-out;
-        }
-    }
-}
-
-/*----------------Map----------------*/
-
-.map-wrapper {
-    min-height: 350px;
-}
-
-#map {
-    position: relative;
-    overflow: hidden;
-    min-height: 350px;
-}
-
-.form-inline {
-    padding-bottom: 8px;
-}
-
-/*---------------Modal---------------*/
+/*---------------Instructional Map Modal---------------*/
 
 .modal-footer {
     display: block;
@@ -258,7 +278,7 @@ footer {
 /*-----------Media Queries---------*/
 
 @media (max-width: 576px) {
-    
+
     /*-------ensures the map wrapper, search bar and button group are the same width on smaller devices------*/
     .map-section {
         padding: 10px;
@@ -267,14 +287,14 @@ footer {
         padding-right: 0px;
         padding-left: 0px;
     }
-    
+
     /*-----------Reduces size of the "City Break" image of a city skyline on small devices---------*/
     .city-break {
         background-image: url(../images/montreal.jpg);
         background-size: cover;
         min-height: 150px;
     }
-    
+
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {}

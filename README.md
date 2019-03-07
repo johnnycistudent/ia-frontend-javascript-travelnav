@@ -17,8 +17,8 @@ This website will be used by people looking to travel to desired destinations wh
 My project began with the wireframes in the links below but the design of the pages developed as I made them...
 
 
- * [Mobile Wireframes]()
- * [Desktop Wireframes]()
+ * [Mobile Wireframes](https://github.com/johnnycistudent/ia-frontend-javascript-travelnav/blob/master/assets/images/mobile_wireframe.jpg)
+ * [Desktop Wireframes](https://github.com/johnnycistudent/ia-frontend-javascript-travelnav/blob/master/assets/images/desktop_wireframes.jpg)
 
 
 ## Features
@@ -26,10 +26,12 @@ My project began with the wireframes in the links below but the design of the pa
   *   Navbar
   *   Hero Image
   *   Call-to-Action button
-  *   Recommended section
   *   Map section
   *   Search bar
   *   Map Buttons
+  *   Map
+  *   Info Window
+  *   City Break section
   *   Footer
 
 

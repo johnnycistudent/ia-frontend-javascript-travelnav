@@ -251,9 +251,16 @@ function showInfoWindow() {
 
 // Show place details in info window on map
 function setPlaceDetails(place) {
-    document.getElementById('place-name').innerHTML = '<a href="' + place.url + 'target="_blank">' + place.name + '</a>';
+    document.getElementById('place-name').textContent = place.name;
     document.getElementById('place-address').textContent = place.vicinity;
     document.getElementById('place-number').textContent = place.formatted_phone_number;
+    document.getElementById('place-url').innerHTML = '<a href="' + place.website + '"target="_blank">' + 'Go to Website' + '</a>';
+    // if (!place.website) {
+    //     $('.cover').show();
+    // }
+    if (place.website === null) {
+        $("#place-url").css('display', 'none');
+    }
 }
 
 // Scrolls smoothly to Map section when the CTA "Navigate your Travel" button is pressed
