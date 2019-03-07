@@ -17,8 +17,8 @@ This website will be used by people looking to travel to desired destinations wh
 My project began with the wireframes in the links below but the design of the pages developed as I made them...
 
 
- // * [Mobile Wireframes]()
-  //* [Desktop Wireframes]()
+ * [Mobile Wireframes]()
+ * [Desktop Wireframes]()
 
 
 ## Features
@@ -102,7 +102,12 @@ This website was designed by John O'Connor.
 
 
 ### Media 
-  * The Hero Image is from Pixabay and was sourced using google image search under the free to use search setting. It can be found [here](https://pixabay.com/en/panorama-miami-florida-water-usa-2117310/).
+  * All of the images on this page were taken from Pixabay and were sourced using google image search under the free to use search setting. They can be found at the following links  
+  * [Hero Image](https://pixabay.com/en/panorama-miami-florida-water-usa-2117310/).
+  * [City Break Image](https://pixabay.com/photos/montreal-skyline-city-canada-910653/).
+  * [Paris](https://pixabay.com/photos/montreal-skyline-city-canada-910653/).
+  * [Rome](https://pixabay.com/photos/rome-the-vatican-italy-1945033/).
+  * [New York](https://pixabay.com/photos/statue-of-liberty-new-york-manhattan-1031550/).
 
 
 ## Acknowledgements

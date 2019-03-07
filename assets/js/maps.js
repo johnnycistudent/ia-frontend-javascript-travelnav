@@ -210,15 +210,12 @@ function searchHotels() {
 
             }
         }
-
         if (!results[0]) {
             $('#results').show();
             setTimeout(function() {
                 $('#results').hide();
             }, 2000);
         }
-
-
     });
 }
 
