@@ -14,8 +14,20 @@
   padding-top: 15px;
   color: #fff !important; }
 
-.btn-success:hover, .btn-success:hover:not(:disabled):not(.disabled):active:focus, .btn-group .btn-primary:hover, .hovereffect a.info:hover, .btn-success:focus, .btn-success:focus:not(:disabled):not(.disabled):active, .btn-group .btn-primary:focus, .hovereffect a.info:focus:hover, .btn-success:active, .btn-success:active:not(:disabled):not(.disabled):focus, .btn-group .btn-primary:active, .hovereffect a.info:active:hover {
-  cursor: pointer; }
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success:not(:disabled):not(.disabled):active:focus, .btn-group .btn-primary:hover, .btn-group .btn-primary:focus, .btn-group .btn-primary:active, .btn-secondary {
+  background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff); }
+  .btn-success:hover, .btn-success:hover:not(:disabled):not(.disabled):active:focus, .btn-group .btn-primary:hover, .btn-secondary:hover, .btn-success:focus, .btn-success:focus:not(:disabled):not(.disabled):active, .btn-group .btn-primary:focus, .btn-secondary:focus, .btn-success:active, .btn-success:active:not(:disabled):not(.disabled):focus, .btn-group .btn-primary:active, .btn-secondary:active {
+    cursor: pointer; }
+  .btn-success:active, .btn-success:active:not(:disabled):not(.disabled):focus, .btn-group .btn-primary:active, .btn-secondary:active {
+    background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff); }
+  .btn-success:hover, .btn-success:hover:not(:disabled):not(.disabled):active:focus, .btn-group .btn-primary:hover, .btn-secondary:hover {
+    background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #2988ee, #4194ed);
+    moz-transition: all .6s ease-in-out;
+    -o-transition: all .6s ease-in-out;
+    -webkit-transition: all .6s ease-in-out;
+    transition: all .6s ease-in-out; }
+  .btn-success:focus, .btn-success:focus:not(:disabled):not(.disabled):active, .btn-group .btn-primary:focus, .btn-secondary:focus {
+    background: linear-gradient(to left, #0551a1, #064b94, #1a6ec7, #1f6fc5, #367fcd); }
 
 /*----------------Body---------------*/
 body {
@@ -55,9 +67,11 @@ body {
 
 .btn-success {
   color: #fff;
+  border-color: #007bff;
   border-radius: 16px;
   background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff); }
   .btn-success:hover {
+    border-color: #007bff;
     background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #2988ee, #4194ed);
     moz-transition: all .6s ease-in-out;
     -o-transition: all .6s ease-in-out;
@@ -77,24 +91,16 @@ section {
   width: 100%;
   background: #ebf5ff; }
 
+#intro-paragraph {
+  margin-top: 1rem;
+  margin-bottom: 1rem; }
+
 /*------------Map Buttons------------*/
 .btn-group {
   width: 100%;
   padding-bottom: 8px; }
   .btn-group .btn-primary {
     background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff); }
-    .btn-group .btn-primary:hover {
-      background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #2988ee, #4194ed);
-      moz-transition: all .6s ease-in-out;
-      -o-transition: all .6s ease-in-out;
-      -webkit-transition: all .6s ease-in-out;
-      transition: all .6s ease-in-out; }
-    .btn-group .btn-primary:focus, .btn-group .btn-primary:active {
-      background: linear-gradient(to left, #0551a1, #064b94, #1a6ec7, #1f6fc5, #367fcd);
-      moz-transition: all .6s ease-in-out;
-      -o-transition: all .6s ease-in-out;
-      -webkit-transition: all .6s ease-in-out;
-      transition: all .6s ease-in-out; }
 
 /*----------------Map----------------*/
 .map-wrapper {
@@ -120,6 +126,9 @@ section {
     font-weight: bold; }
 
 /*--------City Break Section-------*/
+.intro-citybreak {
+  padding: 15px; }
+
 .section-heading {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -197,7 +206,8 @@ section {
   padding: 7px 14px; }
 
 .hovereffect a.info:hover {
-  box-shadow: 0 0 5px #fff; }
+  box-shadow: 0 0 5px #fff;
+  cursor: pointer; }
 
 .hovereffect:hover .city-image {
   -ms-transform: scale(1.2);
@@ -231,9 +241,16 @@ section {
 
 /*---------------Footer-------------*/
 footer {
-  color: #000;
+  color: #000 !important;
   min-height: 30px;
-  text-align: center; }
+  text-align: center;
+  background-color: #d7ebff; }
+  footer p {
+    margin-bottom: 0; }
+
+#github-link {
+  text-decoration: none;
+  color: #000 !important; }
 
 /*-----------Media Queries---------*/
 @media (max-width: 576px) {

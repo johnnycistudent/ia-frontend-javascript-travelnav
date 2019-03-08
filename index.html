@@ -75,9 +75,8 @@
         <div class="map-section">
             <div class="row">
                 <div class="col-12">
-                    <div class="intro">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-                            nisl ut aliquip ex ea commodo consequat.</p>
+                    <div class="intro text-center">
+                        <p id="intro-paragraph">Enter any destination in the search bar below and start exploring your travels!</p>
                     </div>
                 </div>
                 <div class="col-12 search">
@@ -140,9 +139,8 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <div class="intro">
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-                        nisl ut aliquip ex ea commodo consequat.</p>
+                <div class="intro-citybreak text-center">
+                    <p>Fancy taking a trip? Why not check out some of our most popular city break destinations below!</p>
                 </div>
             </div>
 
@@ -153,18 +151,18 @@
             <div class="col-12">
                 <div class="recommended row">
                     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        <div class="hovereffect">
+                        <div class="hovereffect" onClick="return true">
                             <div class="city-image" id="paris">
 
                             </div>
-                            <div class="overlay">
+                            <div class="overlay" onClick="return true">
                                 <a class="info" id="center-paris">Explore Paris</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                        <div class="hovereffect">
+                        <div class="hovereffect" onClick="return true">
                             <div class="city-image" id="rome">
 
                             </div>
@@ -175,7 +173,7 @@
                     </div>
 
                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                        <div class="hovereffect">
+                        <div class="hovereffect" onClick="return true">
                             <div class="city-image" id="newyork">
                             </div>
                             <div class="overlay">
@@ -206,7 +204,7 @@
                     <p id="modal-message">Please select a location in the search bar</p>
                 </div>
                 <div class="modal-footer text-center">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                    <button type="button" class="modal-button btn btn-secondary" data-dismiss="modal">OK</button>
                 </div>
             </div>
         </div>
@@ -219,7 +217,7 @@
     
     <footer>
         <div class="container">
-            <p class="text-center">JOC © 2019</p>
+            <p class="text-center">JOC © 2019 <a id="github-link" href="https://github.com/johnnycistudent" target="_blank"><i class="fab fa-github"></i></a></p>
         </div>
     </footer>
 

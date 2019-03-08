@@ -16,9 +16,24 @@
 }
 
 %btn {
+    background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff);
     &:hover,
     &:focus,
     &:active {
-        cursor: pointer; 
+        cursor: pointer;
+
+    }
+    &:active {
+        background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff);
+    }
+    &:hover {
+        background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #2988ee, #4194ed);
+        moz-transition: all .6s ease-in-out;
+        -o-transition: all .6s ease-in-out;
+        -webkit-transition: all .6s ease-in-out;
+        transition: all .6s ease-in-out;
+    }
+    &:focus {
+        background: linear-gradient(to left, #0551a1, #064b94, #1a6ec7, #1f6fc5, #367fcd);
     }
 }

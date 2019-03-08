@@ -58,10 +58,12 @@ body {
 .btn-success {
     color: #fff; //background-color: $brand-color;
     //border-color: #28a745;
+    border-color: #007bff;
     border-radius: 16px;
     background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff);
     &:hover {
         @extend %btn;
+        border-color: #007bff;
         background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #2988ee, #4194ed);
         moz-transition: all .6s ease-in-out;
         -o-transition: all .6s ease-in-out;
@@ -92,6 +94,11 @@ section {
     background: $section-color;
 }
 
+#intro-paragraph {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 /*------------Map Buttons------------*/
 
 .btn-group {
@@ -100,21 +107,19 @@ section {
     .btn-primary {
         background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff);
         &:hover {
-            @extend %btn;
-            background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #2988ee, #4194ed);
-            moz-transition: all .6s ease-in-out;
-            -o-transition: all .6s ease-in-out;
-            -webkit-transition: all .6s ease-in-out;
-            transition: all .6s ease-in-out;
+            @extend %btn; // background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #2988ee, #4194ed);
+            // moz-transition: all .6s ease-in-out;
+            // -o-transition: all .6s ease-in-out;
+            // -webkit-transition: all .6s ease-in-out;
+            // transition: all .6s ease-in-out;
         }
         &:focus,
         &:active {
-            @extend %btn;
-            background: linear-gradient(to left, #0551a1, #064b94, #1a6ec7, #1f6fc5, #367fcd);
-            moz-transition: all .6s ease-in-out;
-            -o-transition: all .6s ease-in-out;
-            -webkit-transition: all .6s ease-in-out;
-            transition: all .6s ease-in-out;
+            @extend %btn; // background: linear-gradient(to left, #0551a1, #064b94, #1a6ec7, #1f6fc5, #367fcd);
+            // moz-transition: all .6s ease-in-out;
+            // -o-transition: all .6s ease-in-out;
+            // -webkit-transition: all .6s ease-in-out;
+            // transition: all .6s ease-in-out;
         }
     }
 }
@@ -149,9 +154,11 @@ section {
     }
 }
 
-
-
 /*--------City Break Section-------*/
+
+.intro-citybreak {
+    padding: 15px;
+}
 
 .section-heading {
     margin-top: 20px;
@@ -245,7 +252,7 @@ section {
 
 .hovereffect a.info:hover {
     box-shadow: 0 0 5px #fff;
-    @extend %btn;
+    cursor: pointer;
 }
 
 .hovereffect:hover .city-image {
@@ -277,6 +284,10 @@ section {
 
 /*---------------Instructional Map Modal---------------*/
 
+.btn-secondary {
+    @extend %btn;
+}
+
 .modal-footer {
     display: block;
     border-top: 0;
@@ -291,9 +302,18 @@ section {
 /*---------------Footer-------------*/
 
 footer {
-    color: #000;
+    color: #000!important;
     min-height: 30px;
     text-align: center;
+    background-color: #d7ebff;
+    p {
+        margin-bottom: 0;
+    }
+}
+
+#github-link {
+    text-decoration: none;
+    color: #000!important;
 }
 
 /*-----------Media Queries---------*/
