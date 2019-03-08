@@ -15,6 +15,7 @@
   color: #fff !important; }
 
 .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success:not(:disabled):not(.disabled):active:focus, .btn-group .btn-primary:hover, .btn-group .btn-primary:focus, .btn-group .btn-primary:active, .btn-secondary {
+  color: #fff;
   background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff); }
   .btn-success:hover, .btn-success:hover:not(:disabled):not(.disabled):active:focus, .btn-group .btn-primary:hover, .btn-secondary:hover, .btn-success:focus, .btn-success:focus:not(:disabled):not(.disabled):active, .btn-group .btn-primary:focus, .btn-secondary:focus, .btn-success:active, .btn-success:active:not(:disabled):not(.disabled):focus, .btn-group .btn-primary:active, .btn-secondary:active {
     cursor: pointer; }
@@ -66,7 +67,6 @@ body {
   padding-top: 5px; }
 
 .btn-success {
-  color: #fff;
   border-color: #007bff;
   border-radius: 16px;
   background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff); }
@@ -135,7 +135,8 @@ section {
   text-transform: uppercase;
   color: #fff;
   font-weight: 700;
-  font-family: "Muli", sans-serif; }
+  font-family: "Muli", sans-serif;
+  font-size: 4rem; }
 
 .city-break {
   background-image: url(../images/montreal.jpg);
@@ -266,6 +267,8 @@ footer {
   .city-break {
     background-image: url(../images/montreal.jpg);
     background-size: cover;
-    min-height: 150px; } }
+    min-height: 150px; }
+    .city-break h2.section-heading {
+      font-size: 3rem; } }
 
 /*# sourceMappingURL=main.css.map */
