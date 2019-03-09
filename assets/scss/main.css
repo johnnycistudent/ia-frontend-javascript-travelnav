@@ -23,7 +23,7 @@
     background: linear-gradient(to left, #007bff, #0a81ff, #1787ff, #238dff, #2e93ff); }
   .btn-success:hover, .btn-success:hover:not(:disabled):not(.disabled):active:focus, .btn-group .btn-primary:hover, .btn-secondary:hover {
     background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #2988ee, #4194ed);
-    moz-transition: all .6s ease-in-out;
+    -moz-transition: all .6s ease-in-out;
     -o-transition: all .6s ease-in-out;
     -webkit-transition: all .6s ease-in-out;
     transition: all .6s ease-in-out; }
@@ -36,7 +36,7 @@ body {
   font-size: 1em;
   color: #000; }
 
-/*----------------Navbar---------------*/
+/*----------------Navbar----------------*/
 /*----------------Logo---------------*/
 .logo {
   text-align: center; }
@@ -73,13 +73,13 @@ body {
   .btn-success:hover {
     border-color: #007bff;
     background: linear-gradient(to left, #035ebd, #0b61bc, #1d7ce1, #2988ee, #4194ed);
-    moz-transition: all .6s ease-in-out;
+    -moz-transition: all .6s ease-in-out;
     -o-transition: all .6s ease-in-out;
     -webkit-transition: all .6s ease-in-out;
     transition: all .6s ease-in-out; }
   .btn-success:focus, .btn-success:active, .btn-success:not(:disabled):not(.disabled):active:focus {
     background: linear-gradient(to left, #0551a1, #064b94, #1a6ec7, #1f6fc5, #367fcd);
-    moz-transition: all .6s ease-in-out;
+    -moz-transition: all .6s ease-in-out;
     -o-transition: all .6s ease-in-out;
     -webkit-transition: all .6s ease-in-out;
     transition: all .6s ease-in-out;
