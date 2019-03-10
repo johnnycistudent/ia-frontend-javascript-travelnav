@@ -288,6 +288,9 @@ $('#center-newyork').click(function() {
 });
 
 // Stops page reloading when "Enter" or "Return" are pressed in search box
-$('#mapSearch').submit(function(e) {
-    e.preventDefault();
+$(document).keypress(
+  function(event){
+    if (event.which == '13') {
+      event.preventDefault();
+    }
 });
