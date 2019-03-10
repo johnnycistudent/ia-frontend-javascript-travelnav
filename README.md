@@ -151,6 +151,8 @@ This website was designed by John O'Connor.
    
    - [New York](https://pixabay.com/photos/statue-of-liberty-new-york-manhattan-1031550/).  
 
+  The favicon image was made using [https://favicon.io/](https://favicon.io/).
+
 
 ## Acknowledgements
 
