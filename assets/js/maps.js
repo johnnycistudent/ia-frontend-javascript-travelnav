@@ -43,48 +43,29 @@ function initMap() {
     });
 }
 
+function goToSearchPlace() {
+    var place = autocomplete.getPlace();
+    if (place && place.geometry) {
+        map.panTo(place.geometry.location);
+        map.setZoom(15);
+        searchAttractions();
+    }
+    // shows instructional modal if "Attractions" button is active but nothing is entered in the search bar
+    else {
+        $('#mymodal').modal('show');
+    }
+}
 
 // This function detects a place has been changed on the map and triggers a function to search for the establishment its button active class 
 function onPlaceChanged() {
     // setTimeout to allow view update and correct class applied to buttons
     setTimeout(function() {
         if ($('.attractions-button').hasClass('active')) {
-            var place = autocomplete.getPlace();
-            if (place && place.geometry) {
-                map.panTo(place.geometry.location);
-                map.setZoom(15);
-                searchAttractions();
-            }
-            // shows instructional modal if "Attractions" button is active but nothing is entered in the search bar
-            else {
-                $('#mymodal').modal('show');
-            }
-        }
-
-        else if ($('.food-button').hasClass('active')) {
-            var place = autocomplete.getPlace();
-            if (place && place.geometry) {
-                map.panTo(place.geometry.location);
-                map.setZoom(15);
-                searchFood();
-            }
-            // shows instructional modal if "Food" button is active but nothing is entered in the search bar
-            else {
-                $('#mymodal').modal('show');
-            }
-        }
-
-        else if ($('.hotels-button').hasClass('active')) {
-            var place = autocomplete.getPlace();
-            if (place && place.geometry) {
-                map.panTo(place.geometry.location);
-                map.setZoom(15);
-                searchHotels();
-            }
-            // shows instructional modal if "Hotels" button is active but nothing is entered in the search bar
-            else {
-                $('#mymodal').modal('show');
-            }
+            goToSearchPlace();
+        } else if ($('.food-button').hasClass('active')) {
+            goToSearchPlace();
+        } else if ($('.hotels-button').hasClass('active')) {
+            goToSearchPlace();
         }
     }, 100);
 }
@@ -94,44 +75,42 @@ function onMapDrag() {
     if ($('.attractions-button').hasClass('active')) {
         searchAttractions();
     }
-
     else if ($('.food-button').hasClass('active')) {
         searchFood();
     }
-
     else if ($('.hotels-button').hasClass('active')) {
         searchHotels();
     }
 }
 
-// Centres the map on Paris when the "Explore Paris" button is clicked
-function findParis() {
-    var latLng = new google.maps.LatLng(48.8566, 2.3522);
+function goToLatLng(lat, lng) {
+    var latLng = new google.maps.LatLng(lat, lng);
     setTimeout(function() {
         map.setZoom(15);
         map.panTo(latLng);
         searchAttractions();
     }, 800);
+}
+
+// Centres the map on Paris when the "Explore Paris" button is clicked
+function findParis() {
+    autocomplete.val("Paris");
+    goToLatLng(48.8566, 2.3522);
 }
 
 // Centres the map on Rome when the "Explore Rome" button is clicked
 function findRome() {
-    var latLng = new google.maps.LatLng(41.9028, 12.4964);
-    setTimeout(function() {
-        map.setZoom(15);
-        map.panTo(latLng);
-        searchAttractions();
-    }, 800);
+    goToLatLng(41.9028, 12.4964);
+    autocomplete({selectFirst:true}).val("Rome");
+    
 }
 
 // Centres the map on New York when the "Explore New York" button is clicked
 function findNewYork() {
-    var latLng = new google.maps.LatLng(40.758896, -73.985130);
-    setTimeout(function() {
-        map.setZoom(15);
-        map.panTo(latLng);
-        searchAttractions();
-    }, 800);
+    
+    //autocomplete.val("New York");
+    goToLatLng(40.758896, -73.985130);
+    autocomplete({selectFirst:true}).val("New York");
 }
 
 // Searches attractions when onPlaceChanged and onMapDrag functions are triggered by an eventlistener
