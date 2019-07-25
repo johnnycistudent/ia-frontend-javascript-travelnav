@@ -12,66 +12,61 @@ var google;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 2,
+        zoom: 13,
         center: {
-            //  inits the map with a view of every continent on large devices and centres on Europe and Africa in a smaller device
-            lat: 10.519325,
-            lng: 7.392709
+            //  inits the map with a view of Dublin
+            lat: 53.3498,
+            lng: -6.2603
         }
     });
-
-
-
+    
+    // Instantiates Google Maps' autocomplete
     autocomplete = new google.maps.places.Autocomplete(document.getElementById('searchMap'));
+    
+    // Google Maps places service
     places = new google.maps.places.PlacesService(map);
-
-    autocomplete.addListener('place_changed', onPlaceChanged);
-    document.getElementById('attractions').addEventListener('click', onPlaceChanged);
-    document.getElementById('food').addEventListener('click', onPlaceChanged);
-    document.getElementById('hotels').addEventListener('click', onPlaceChanged);
+    
+    // Binding event listeners
+    autocomplete.addListener('place_changed', goToSearchPlace);
+    document.getElementById('attractions').addEventListener('click', goToSearchPlace);
+    document.getElementById('food').addEventListener('click', goToSearchPlace);
+    document.getElementById('hotels').addEventListener('click', goToSearchPlace);
     google.maps.event.addListener(map, 'dragend', onMapDrag);
     document.getElementById('center-paris').addEventListener('click', findParis);
     document.getElementById('center-rome').addEventListener('click', findRome);
     document.getElementById('center-newyork').addEventListener('click', findNewYork);
 
-
-
-
     // Info Window
     infoWindow = new google.maps.InfoWindow({
         content: document.getElementById('place-info')
     });
+    goToLatLng(53.3498, -6.2603);
 }
 
+// Zooms in to the User's search query
 function goToSearchPlace() {
-    var place = autocomplete.getPlace();
-    if (place && place.geometry) {
-        map.panTo(place.geometry.location);
-        map.setZoom(15);
-        searchAttractions();
-    }
-    // shows instructional modal if "Attractions" button is active but nothing is entered in the search bar
-    else {
-        $('#mymodal').modal('show');
-    }
-}
-
-// This function detects a place has been changed on the map and triggers a function to search for the establishment its button active class 
-function onPlaceChanged() {
     // setTimeout to allow view update and correct class applied to buttons
     setTimeout(function() {
-        if ($('.attractions-button').hasClass('active')) {
-            goToSearchPlace();
-        } else if ($('.food-button').hasClass('active')) {
-            goToSearchPlace();
-        } else if ($('.hotels-button').hasClass('active')) {
-            goToSearchPlace();
+        var place = autocomplete.getPlace();
+        if (place && place.geometry) {
+            map.panTo(place.geometry.location);
+            map.setZoom(15);
         }
+        
+       searchByFilter();
     }, 100);
 }
 
+
 // This function allows the user to change a place on the map using their cursor without the map snapping back to the view port from the autocomplete result
 function onMapDrag() {
+    autocomplete.set('place',null);
+    searchByFilter();
+}
+
+
+// Checks which filter button is active and searches for respective establishments
+function searchByFilter() {
     if ($('.attractions-button').hasClass('active')) {
         searchAttractions();
     }
@@ -83,37 +78,39 @@ function onMapDrag() {
     }
 }
 
+
+// Goes to specified location 
 function goToLatLng(lat, lng) {
     var latLng = new google.maps.LatLng(lat, lng);
     setTimeout(function() {
         map.setZoom(15);
         map.panTo(latLng);
-        searchAttractions();
+        searchByFilter();
     }, 800);
 }
 
-// Centres the map on Paris when the "Explore Paris" button is clicked
+// Centres the map on Paris when the "Explore Paris" button is clicked and populates search input with city name
 function findParis() {
-    autocomplete.val("Paris");
+    autocomplete.set('place',null);
+    $('#searchMap').val("Paris");
     goToLatLng(48.8566, 2.3522);
 }
 
-// Centres the map on Rome when the "Explore Rome" button is clicked
+// Centres the map on Rome when the "Explore Rome" button is clicked and populates search input with city name
 function findRome() {
+    autocomplete.set('place',null);
+    $('#searchMap').val("Rome");
     goToLatLng(41.9028, 12.4964);
-    autocomplete({selectFirst:true}).val("Rome");
-    
 }
 
-// Centres the map on New York when the "Explore New York" button is clicked
+// Centres the map on New York when the "Explore New York" button is clicked and populates search input with city name
 function findNewYork() {
-    
-    //autocomplete.val("New York");
+    autocomplete.set('place',null);
+    $('#searchMap').val("New York");
     goToLatLng(40.758896, -73.985130);
-    autocomplete({selectFirst:true}).val("New York");
 }
 
-// Searches attractions when onPlaceChanged and onMapDrag functions are triggered by an eventlistener
+// Searches attractions when goToSearchPlace and onMapDrag functions are triggered by an eventlistener
 function searchAttractions() {
     var search = {
         bounds: map.getBounds(),
@@ -139,7 +136,7 @@ function searchAttractions() {
     });
 }
 
-// Searches food establishments when onPlaceChanged and onMapDrag functions are triggered by an eventlistener
+// Searches food establishments when goToSearchPlace and onMapDrag functions are triggered by an eventlistener
 function searchFood() {
     var search = {
         bounds: map.getBounds(),
@@ -165,7 +162,7 @@ function searchFood() {
     });
 }
 
-// Searches establishments to stay when onPlaceChanged and onMapDrag functions are triggered by an eventlistener
+// Searches establishments to stay when goToSearchPlace and onMapDrag functions are triggered by an eventlistener
 function searchHotels() {
     var search = {
         bounds: map.getBounds(),
@@ -205,7 +202,7 @@ function dropMarkers(i) {
     };
 }
 
-//Clears markers when onPlaceChanged functions is triggered
+//Clears markers when goToSearchPlace functions is triggered
 function clearMarkers() {
     for (var i = 0; i < markers.length; i++) {
         if (markers[i]) {
